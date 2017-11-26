@@ -1,0 +1,9 @@
+/*上涨的股票红色文本强调*/
+tr.inc{
+  color: red;
+  font-weight: bold;
+}
+/*下跌的股票用绿色文本显示*/
+tr.dec{
+  color: green;
+}

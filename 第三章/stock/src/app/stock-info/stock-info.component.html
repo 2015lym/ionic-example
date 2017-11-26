@@ -1,0 +1,43 @@
+<!-- 沪深A股行情显示区 -->
+<div class="row">
+  <table class="table table-striped col-md-12">
+    <thead>
+      <tr>
+        <th>代码</th>
+        <th>名称</th>
+        <th>涨跌幅</th>
+        <th>涨跌额</th>
+        <th>现价</th>
+        <th>开盘价</th>
+        <th>昨收</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of stockItems">
+
+        <td>{{item.name}}</td>
+        <td>{{item.changePercent|number:2}}%</td>
+        <td>{{item.changeAmount|number:2}}</td>
+        <td>{{item.currentPrice}}</td>
+        <td>{{item.openPrice}}</td>
+        <td>{{item.closePrice}}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="removeStock(item.code)">
+            删除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- 增加股票代码操作区 -->
+<div ng-controller="addStockController" class="row">
+  <div class="col-sm-3" style="padding-left: 0px;padding-right: 0px">
+    <input ng-model="newStockCode" ng-keypress="keypress($event)" class="form-control" placeholder="输入股票代码，如600028">
+  </div>
+  <div class="col-md-1">
+    <button ng-click="addStock(newStockCode)" style="margin-left: -10px;" class="btn btn-primary">
+      增加
+    </button>
+  </div>
+</div>
