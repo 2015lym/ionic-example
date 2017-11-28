@@ -13,11 +13,9 @@ export class StockInfoComponent implements OnInit {
     private jsonp: Jsonp) { }
 
   ngOnInit() {
-    // let params = new URLSearchParams();
-    // params.set('callback', '__ng_jsonp__.__req0.finished');
-    // this.jsonp.get('http://hq.sinajs.cn/list=' + 'sh601006', { search: params }).subscribe(data => {
-    //   console.log(data);
-    // });
+    this.http.get('/api/list=' + 'sh601006').subscribe(res => {
+      console.log(res);
+    });
   }
 }
 
