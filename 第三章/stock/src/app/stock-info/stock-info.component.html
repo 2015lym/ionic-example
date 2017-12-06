@@ -16,27 +16,29 @@
     <tbody>
       <tr *ngFor="let item of stockItems">
 
+        <td>{{item.code}}</td>
         <td>{{item.name}}</td>
-        <td>{{item.changePercent|number:2}}%</td>
-        <td>{{item.changeAmount|number:2}}</td>
+        <td>{{item.changePercent| percent:'1.2-2'}}</td>
+        <td>{{item.changeAmount}}</td>
         <td>{{item.currentPrice}}</td>
         <td>{{item.openPrice}}</td>
         <td>{{item.closePrice}}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="removeStock(item.code)">
-            删除</button>
+          <button class="btn btn-danger btn-sm" (click)="removeStockInfo(item)">
+            删除
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 <!-- 增加股票代码操作区 -->
-<div ng-controller="addStockController" class="row">
+<div class="row">
   <div class="col-sm-3" style="padding-left: 0px;padding-right: 0px">
-    <input ng-model="newStockCode" ng-keypress="keypress($event)" class="form-control" placeholder="输入股票代码，如600028">
+    <input #newStockCode class="form-control" placeholder="输入股票代码，如600028">
   </div>
   <div class="col-md-1">
-    <button ng-click="addStock(newStockCode)" style="margin-left: -10px;" class="btn btn-primary">
+    <button (click)="addStockInfo(newStockCode.value)" style="margin-left: -10px;" class="btn btn-primary">
       增加
     </button>
   </div>
