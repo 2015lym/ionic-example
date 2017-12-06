@@ -9,11 +9,34 @@ import { HomePage } from '../home/home';
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  // Tab的所有页面
+  tabRoots: Object[];
 
   constructor() {
+    this.tabRoots = this.getTabInfo();
+  }
 
+  /**
+   * 取得Tab配置信息
+   */
+  getTabInfo(): Object[] {
+    return [
+      {
+        root: HomePage,
+        tabTitle: '首页',
+        tabIcon: 'home'
+      },
+      {
+        root: AboutPage,
+        tabTitle: '关于',
+        tabIcon: 'information-circle',
+        tabBadge: '2'
+      },
+      {
+        root: ContactPage,
+        tabTitle: '设置',
+        tabIcon: 'person'
+      }
+    ];
   }
 }
