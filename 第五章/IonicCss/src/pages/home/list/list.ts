@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-button',
-  templateUrl: 'button.html',
+  selector: 'page-list',
+  templateUrl: 'list.html',
 })
-export class ButtonPage {
+export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ButtonPage');
+    console.log('ionViewDidLoad ListPage');
   }
 
 }
