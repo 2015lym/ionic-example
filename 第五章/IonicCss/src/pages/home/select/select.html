@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>选择框</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!-- 官方文档参考地址 -->
+<!-- https://ionicframework.com/docs/components/#select -->
+<ion-content class="content-gray">
+  <ion-list>
+    <!-- 普通选择框 -->
+    <!-- 多选加 multiple="true" -->
+    <!-- interface 有 action-sheet,、popover、alert 默认 alert -->
+    <ion-item>
+      <ion-label>动物</ion-label>
+      <ion-select [(ngModel)]="animal" cancelText="取消" okText="确定">
+        <ion-option value="dog">狗</ion-option>
+        <ion-option value="cat">猫</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
