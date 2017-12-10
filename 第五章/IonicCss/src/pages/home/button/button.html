@@ -1,7 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>按钮</ion-title>
+    <ion-buttons end>
+      <button ion-button>Default</button>
+    </ion-buttons>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="star"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
 <!-- 官方文档参考地址 -->
@@ -14,7 +23,11 @@
   <button ion-button color="light">Light</button>
   <button ion-button color="dark">Dark</button>
 
-  <!-- 形状 -->
+  <!-- 尺寸、形状 -->
+  <button ion-button large>Large</button>
+  <button ion-button>Default</button>
+  <button ion-button small>Small</button>
+
   <button ion-button full>Full Button</button>
   <button ion-button block>Block Button</button>
   <button ion-button round>Round Button</button>
@@ -38,10 +51,5 @@
   <button ion-button icon-only>
     <ion-icon name="star"></ion-icon>
   </button>
-
-  <!-- 尺寸 -->
-  <button ion-button large>Large</button>
-  <button ion-button>Default</button>
-  <button ion-button small>Small</button>
 
 </ion-content>
