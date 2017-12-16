@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>输入框</ion-title>
+    <ion-searchbar ion-end placeholder="搜索"></ion-searchbar>
   </ion-navbar>
 
 </ion-header>
@@ -12,44 +12,41 @@
   <!-- 普通效果 -->
   <ion-list>
     <ion-item>
-      <ion-input type="text" placeholder="账号"></ion-input>
+      <ion-input type="text" placeholder="请输入账号"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="password" placeholder="密码"></ion-input>
+      <ion-input type="password" placeholder="请输入密码"></ion-input>
     </ion-item>
   </ion-list>
 
   <!-- 带图标效果 -->
   <ion-list>
     <ion-item>
-      <ion-icon name="cart" item-start></ion-icon>
-      <ion-input type="text" placeholder="账号"></ion-input>
+      <ion-icon name="person" item-start></ion-icon>
+      <ion-input type="text" placeholder="请输入账号"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-icon name="cart" item-start></ion-icon>
-      <ion-input type="password" placeholder="密码"></ion-input>
+      <ion-icon name="lock" item-start></ion-icon>
+      <ion-input type="password" placeholder="请输入密码"></ion-input>
     </ion-item>
   </ion-list>
+
+  <!-- 固定文字 -->
+  <ion-list>
+    <ion-item>
+      <ion-label>左侧固定文字</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>上方固定文字</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
   <!-- 动画效果 -->
   <ion-list>
     <ion-item>
-      <ion-label floating>账号</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <!-- 左侧带文字 -->
-  <ion-list>
-    <ion-item>
-      <ion-label>账号</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <!-- 固定在左上角 -->
-  <ion-list>
-    <ion-item>
-      <ion-label stacked>账号</ion-label>
+      <ion-label floating>动画效果</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
   </ion-list>
