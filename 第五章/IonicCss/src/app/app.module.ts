@@ -11,8 +11,9 @@ import { ButtonPage } from '../pages/home/button/button';
 import { ListPage } from '../pages/home/list/list';
 import { CardPage } from '../pages/home/card/card';
 import { InputPage } from '../pages/home/input/input';
-import { SelectPage } from '../pages/home/select/select';
 import { TogglePage } from '../pages/home/toggle/toggle';
+import { RangePage } from '../pages/home/range/range';
+import { SelectPage } from '../pages/home/select/select';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,8 +29,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     CardPage,
     InputPage,
-    SelectPage,
-    TogglePage
+    TogglePage,
+    RangePage,
+    SelectPage
   ],
   imports: [
     BrowserModule,
@@ -46,8 +48,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     CardPage,
     InputPage,
-    SelectPage,
-    TogglePage
+    TogglePage,
+    RangePage,
+    SelectPage
   ],
   providers: [
     StatusBar,

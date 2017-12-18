@@ -4,8 +4,9 @@ import { ButtonPage } from './button/button';
 import { ListPage } from './list/list';
 import { CardPage } from './card/card';
 import { InputPage } from './input/input';
-import { SelectPage } from './select/select';
 import { TogglePage } from './toggle/toggle';
+import { RangePage } from './range/range';
+import { SelectPage } from './select/select';
 
 @Component({
   selector: 'page-home',
@@ -18,16 +19,19 @@ export class HomePage {
   private cardPage: any;
 
   private inputPage: any;
-  private selectPage: any;
   private togglePage: any;
+  private rangePage: any;
+  private selectPage: any;
+  
 
   constructor(public navCtrl: NavController) {
     this.buttonPage = ButtonPage;
     this.listPage = ListPage;
     this.cardPage = CardPage;
     this.inputPage = InputPage;
-    this.selectPage = SelectPage;
     this.togglePage = TogglePage;
+    this.rangePage = RangePage;
+    this.selectPage = SelectPage;
   }
 
 }
