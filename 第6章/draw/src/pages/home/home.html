@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>首页</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addItem()">添加</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray">
+
+  <ion-list class="margin-top-list">
+    <ion-item-sliding *ngFor="let item of items">
+      <button ion-item (click)="itemSelected(item)">
+        {{ item }}
+      </button>
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">删除</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
