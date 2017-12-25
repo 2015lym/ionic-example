@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 
 /**
- * toast提示框服务
+ * toast 提示框服务
  */
 @Injectable()
 export class ToastService {
