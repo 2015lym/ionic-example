@@ -13,7 +13,10 @@ export class AboutPage {
   }
 
   pushToNextPage() {
-    console.log('进入下一个页面');
-    this.navCtrl.push(NavPage);
+    let data: Object = {
+      username: 'lym',
+      password: '123456'
+    };
+    this.navCtrl.push(NavPage, data);
   }
 }

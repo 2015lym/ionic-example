@@ -14,6 +14,10 @@ export class NavPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NavPage');
+    let username: string = this.navParams.get('username');
+    let password: string = this.navParams.get('password');
+    console.log('用户名：' + username);
+    console.log('密码：' + password);
   }
 
 }
