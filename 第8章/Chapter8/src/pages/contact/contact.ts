@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { ModPage } from '../mod/mod';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +8,12 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public modalCtrl: ModalController) {
 
   }
 
+  presentToNextPage() {
+    let profileModal = this.modalCtrl.create(ModPage);
+    profileModal.present();
+  }
 }
