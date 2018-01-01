@@ -13,10 +13,12 @@ export class ModPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ModPage');
+    let modelData: string = '用户名' + this.navParams.get('username');
+    console.log(modelData);
   }
 
-  dismiss() {
-    this.viewCtrl.dismiss();
+  dismissModal() {
+    let data: Object = { info: '返回的消息' };
+    this.viewCtrl.dismiss(data);
   }
 }

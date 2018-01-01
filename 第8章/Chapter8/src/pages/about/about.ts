@@ -15,8 +15,11 @@ export class AboutPage {
   pushToNextPage() {
     let data: Object = {
       username: 'lym',
-      password: '123456'
+      callback: data => {
+        console.log(data.info);
+      }
     };
     this.navCtrl.push(NavPage, data);
   }
+
 }

@@ -13,7 +13,13 @@ export class ContactPage {
   }
 
   presentToNextPage() {
-    let profileModal = this.modalCtrl.create(ModPage);
+    let data: Object = {
+      username: 'lym'
+    };
+    let profileModal = this.modalCtrl.create(ModPage, data);
+    profileModal.onDidDismiss(data => {
+      console.log(data.info);
+    });
     profileModal.present();
   }
 }
