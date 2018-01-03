@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Nav } from 'ionic-angular';
-import { Page1Page } from "../page1/page1";
-import { Page2Page } from "../page2/page2";
+import { FirstPage } from './../first/first';
+import { SecondPage } from '../second/second';
 
 @Component({
   selector: 'page-menu',
@@ -10,7 +10,7 @@ import { Page2Page } from "../page2/page2";
 export class MenuPage {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1Page;
+  rootPage: any = FirstPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -19,8 +19,8 @@ export class MenuPage {
 
   ionViewDidLoad() {
     this.pages = [
-      { title: '页面一', component: Page1Page },
-      { title: '页面二', component: Page2Page }
+      { title: '页面一', component: FirstPage },
+      { title: '页面二', component: SecondPage }
     ];
   }
 

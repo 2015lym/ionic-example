@@ -1,11 +1,14 @@
 <ion-menu [content]="mymenu">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>xxx的简历</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
+    <div style="text-align: center; width: 50px; height: 50px">
+      <img src="./assets/imgs/logo.png">
+    </div>
     <ion-list>
       <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">
         {{page.title}}

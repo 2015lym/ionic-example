@@ -18,4 +18,8 @@ export class TabsPage {
   constructor() {
 
   }
+
+  selectOneTab() {
+    console.log('选中了第一个标签');
+  }
 }

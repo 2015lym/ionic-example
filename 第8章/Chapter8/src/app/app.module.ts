@@ -10,8 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { NavPage } from '../pages/nav/nav';
 import { ModPage } from '../pages/mod/mod';
 import { MenuPage } from '../pages/menu/menu';
-import { Page1Page } from '../pages/page1/page1';
-import { Page2Page } from '../pages/page2/page2';
+import { FirstPage } from './../pages/first/first';
+import { SecondPage } from '../pages/second/second';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,8 +26,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NavPage,
     ModPage,
     MenuPage,
-    Page1Page,
-    Page2Page
+    FirstPage,
+    SecondPage
   ],
   imports: [
     BrowserModule,
@@ -43,8 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NavPage,
     ModPage,
     MenuPage,
-    Page1Page,
-    Page2Page
+    FirstPage,
+    SecondPage
   ],
   providers: [
     StatusBar,

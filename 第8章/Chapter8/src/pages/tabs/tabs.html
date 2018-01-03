@@ -1,5 +1,5 @@
 <ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Lifecycle" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab1Root" tabTitle="Lifecycle" tabIcon="home" (ionSelect)="selectOneTab()"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Nav" tabIcon="information-circle"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Modal" tabIcon="contacts"></ion-tab>
   <ion-tab [root]="tab4Root" tabTitle="Menu" tabIcon="person"></ion-tab>
