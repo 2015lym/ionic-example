@@ -14,7 +14,7 @@ import { PersonPage } from './../person/person';
 export class MenuPage {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PersonPage;
+  rootPage: any = SkillPage;
 
   pages: Array<{ title: string, component: any }>;
 
