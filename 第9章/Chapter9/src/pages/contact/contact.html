@@ -8,10 +8,42 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <ion-label>
+        ios
+      </ion-label>
+      <ion-spinner item-content name="ios"></ion-spinner>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        ios-small
+      </ion-label>
+      <ion-spinner item-content name="ios-small"></ion-spinner>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        bubbles
+      </ion-label>
+      <ion-spinner item-content name="bubbles"></ion-spinner>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        circles
+      </ion-label>
+      <ion-spinner item-content name="circles"></ion-spinner>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        crescent
+      </ion-label>
+      <ion-spinner item-content name="crescent"></ion-spinner>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        dots
+      </ion-label>
+      <ion-spinner item-content name="dots"></ion-spinner>
     </ion-item>
   </ion-list>
+  <button ion-button block (click)="normalLoading()">普通指示器</button>
 </ion-content>

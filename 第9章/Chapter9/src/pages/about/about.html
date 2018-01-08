@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block (click)="presentAlert()">普通</button>
-  <button ion-button block (click)="presentConfirm()" color="secondary">普通</button>
-  <button ion-button block (click)="presentPrompt()" color="danger">普通</button>
+  <button ion-button block (click)="normalAlert()">普通弹出框</button>
+  <button ion-button block (click)="inputAlert()" color="secondary">可输入弹出框</button>
+  <button ion-button block (click)="normalActionSheet()" color="danger">普通上拉菜单</button>
 </ion-content>
