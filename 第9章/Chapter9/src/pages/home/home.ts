@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, PopoverController, Slides } from 'ionic-angular';
 import { PopoverPage } from './../popover/popover';
 
 @Component({
@@ -7,6 +7,7 @@ import { PopoverPage } from './../popover/popover';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('mySlides') slides: Slides;
 
   constructor(
     public navCtrl: NavController,
@@ -14,8 +15,12 @@ export class HomePage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
+    this.slides.startAutoplay();
+  }
 
+  ionViewWillLeave() {
+    this.slides.stopAutoplay();
   }
 
   presentPopover(myEvent) {
@@ -24,4 +29,5 @@ export class HomePage {
       ev: myEvent
     });
   }
+
 }

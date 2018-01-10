@@ -9,13 +9,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the
-    <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div>
+    <ion-slides #mySlides autoplay="1000" loop="true" pager>
+      <ion-slide>
+        <img src="./assets/imgs/banner1.png">
+      </ion-slide>
+      <ion-slide>
+        <img src="./assets/imgs/banner2.png">
+      </ion-slide>
+      <ion-slide>
+        <img src="./assets/imgs/banner3.png">
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>
