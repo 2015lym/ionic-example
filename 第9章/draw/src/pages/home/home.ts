@@ -11,7 +11,7 @@ import { DrawPage } from '../draw/draw';
 })
 export class HomePage {
 
-
+  // 数据数组
   private items: Array<string> = [];
 
   constructor(
@@ -22,6 +22,9 @@ export class HomePage {
 
   }
 
+  /**
+   * 每次进入页面
+   */
   ionViewDidEnter() {
     this.storage.get('homeList').then((data) => {
       if (data) {
@@ -32,6 +35,9 @@ export class HomePage {
     });
   }
 
+  /**
+   * 点击选项
+   */
   itemSelected(item: string) {
     let params: Object = {
       itemKey: item
@@ -39,8 +45,10 @@ export class HomePage {
     this.navCtrl.push(DrawPage, params);
   }
 
-
-  private addItem(): void {
+  /**
+   * 添加选项
+   */
+  addItem(): void {
     let prompt = this.alertCtrl.create({
       title: '请输入添加内容',
       inputs: [
@@ -67,7 +75,10 @@ export class HomePage {
     prompt.present();
   }
 
-  private savaItem(itemTitle: string): boolean {
+  /**
+   * 保存选项
+   */
+  savaItem(itemTitle: string): boolean {
     if (itemTitle.length === 0) {
       this.toast.show('内容过短');
       return false;
@@ -87,7 +98,10 @@ export class HomePage {
     }
   }
 
-  private deleteItem(item: string): void {
+  /**
+   * 删除选项
+   */
+  deleteItem(item: string): void {
     let index = this.items.indexOf(item);
     this.items.splice(index, 1);
     this.storage.set('homeList', this.items);

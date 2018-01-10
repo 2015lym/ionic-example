@@ -10,7 +10,9 @@ import { ToastService } from '../../app/services/toast.service';
 })
 export class DrawPage {
 
-  private title: string = '抽签';
+  // 标题
+  private title: string = '';
+  // 数据数组
   private items: Array<string> = [];
 
   constructor(
@@ -22,6 +24,9 @@ export class DrawPage {
     this.title = this.navParams.get('itemKey');
   }
 
+  /**
+   * 每次进入页面
+   */
   ionViewDidEnter() {
     this.storage.get(this.title).then((data) => {
       if (data) {
@@ -32,6 +37,9 @@ export class DrawPage {
     });
   }
 
+  /**
+   * 添加选项
+   */
   private addItem(): void {
     let prompt = this.alertCtrl.create({
       title: '请输入添加内容',
@@ -59,6 +67,9 @@ export class DrawPage {
     prompt.present();
   }
 
+  /**
+   * 保存选项
+   */
   private savaItem(itemTitle: string): boolean {
     if (itemTitle.length === 0) {
       this.toast.show('内容过短');
@@ -86,6 +97,9 @@ export class DrawPage {
     this.storage.remove(item);
   }
 
+  /**
+   * 抽签
+   */
   draw() {
     if (this.items.length === 0) {
       this.toast.show('没有数据');
@@ -95,6 +109,9 @@ export class DrawPage {
     }
   }
 
+  /**
+   * 获取随机数
+   */
   getRandomNumber(begin: number, end: number): number {
     return Math.floor(Math.random() * (end - begin)) + begin;
   }

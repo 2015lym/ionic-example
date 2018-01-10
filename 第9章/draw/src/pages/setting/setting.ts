@@ -16,7 +16,10 @@ export class SettingPage {
 
   }
 
-  getRandomNumber() {
+  /**
+   * 随机数测试
+   */
+  randomNumberTest() {
     let prompt = this.alertCtrl.create({
       title: '随机数测试',
       inputs: [
@@ -48,12 +51,15 @@ export class SettingPage {
     prompt.present();
   }
 
+  /**
+   * 检查输入
+   */
   checkRandomNumber(start: string, end: string): boolean {
     if (start.length === 0) {
       this.toast.show('请输入起始值');
       return false;
     } else if (end.length === 0) {
-      this.toast.show('请输入起始值');
+      this.toast.show('请输入终止值');
       return false;
     } else if (!this.checkStringIsNumber(start) || !this.checkStringIsNumber(start)) {
       this.toast.show('请输入纯数字');
@@ -65,7 +71,7 @@ export class SettingPage {
       this.toast.show('起始值不能大于结束值');
       return false;
     } else {
-      this.toast.show(this.showRandomNumber(Number(start), Number(end)).toString());
+      this.toast.show(this.getRandomNumber(Number(start), Number(end)).toString());
       return true;
     }
   }
@@ -82,7 +88,10 @@ export class SettingPage {
     }
   }
 
-  showRandomNumber(begin: number, end: number): number {
+  /**
+   * 获取随机数
+   */
+  getRandomNumber(begin: number, end: number): number {
     return Math.floor(Math.random() * (end - begin)) + begin;
   }
 }
