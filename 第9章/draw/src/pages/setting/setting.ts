@@ -17,11 +17,11 @@ export class SettingPage {
   }
 
   /**
-   * 随机数测试
+   * 指定范围随机数
    */
   randomNumberTest() {
     let prompt = this.alertCtrl.create({
-      title: '随机数测试',
+      title: '指定范围随机数',
       inputs: [
         {
           name: 'start',
