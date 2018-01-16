@@ -13,8 +13,8 @@ export class BatteryPage {
 
   ionViewDidLoad() {
     (<any>window).addEventListener('batterystatus', (status) => {
-      alert("剩余电量: " + status.level + 
-            " 是否正在充电: " + (status.isPlugged ? '是' : '否'));
+      alert("电量级别: " + status.level + 
+            "，充电状态: " + (status.isPlugged ? '是' : '否'));
     }, false);
   }
 }

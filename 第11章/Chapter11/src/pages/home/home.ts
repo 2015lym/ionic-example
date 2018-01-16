@@ -12,8 +12,6 @@ export class HomePage {
   batteryPage = BatteryPage;
   cameraPage = CameraPage;
 
-  constructor(public navCtrl: NavController) {
-
-  }
+  constructor(public navCtrl: NavController) {}
 
 }
