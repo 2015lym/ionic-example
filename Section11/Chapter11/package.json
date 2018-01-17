@@ -69,9 +69,7 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-battery-status": {},
-      "cordova-plugin-whitelist": {}
-      "cordova-plugin-camera": {},
-      "cordova-plugin-battery-status": {},
+      "cordova-plugin-whitelist": {},
       "cordova-plugin-x-toast": {},
       "cordova-plugin-contacts": {},
       "cordova-plugin-local-notification": {},
