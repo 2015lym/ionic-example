@@ -11,7 +11,7 @@ export class BatteryPage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     (<any>window).addEventListener('batterystatus', (status) => {
       alert("电量级别: " + status.level + 
             "，充电状态: " + (status.isPlugged ? '是' : '否'));

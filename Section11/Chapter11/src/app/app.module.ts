@@ -16,7 +16,6 @@ import { WhitelistPagePage } from '../pages/home/whitelist/whitelist';
 import { Device } from '@ionic-native/device';
 import { Toast } from '@ionic-native/toast';
 import { Contacts } from '@ionic-native/contacts';
-import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Vibration } from '@ionic-native/vibration';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -55,7 +54,6 @@ import { SQLite } from '@ionic-native/sqlite';
     Device,
     Toast,
     Contacts,
-    LocalNotifications,
     Geolocation,
     Vibration,
     SocialSharing,
