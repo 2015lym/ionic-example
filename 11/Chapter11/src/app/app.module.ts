@@ -11,7 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BatteryPage } from '../pages/home/battery/battery';
-import { CameraPage } from '../pages/home/camera/camera';
+import { WhitelistPagePage } from '../pages/home/whitelist/whitelist';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { CameraPage } from '../pages/home/camera/camera';
     HomePage,
     TabsPage,
     BatteryPage,
-    CameraPage
+    WhitelistPagePage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +35,7 @@ import { CameraPage } from '../pages/home/camera/camera';
     HomePage,
     TabsPage,
     BatteryPage,
-    CameraPage
+    WhitelistPagePage
   ],
   providers: [
     StatusBar,

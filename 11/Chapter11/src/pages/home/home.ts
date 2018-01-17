@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BatteryPage } from './battery/battery';
-import { CameraPage } from './camera/camera';
+import { WhitelistPagePage } from './whitelist/whitelist';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +10,7 @@ import { CameraPage } from './camera/camera';
 export class HomePage {
 
   batteryPage = BatteryPage;
-  cameraPage = CameraPage;
+  whitelistPage = WhitelistPagePage;
 
   constructor(public navCtrl: NavController) {}
 
