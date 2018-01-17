@@ -1,11 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Ionic Native
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <button block ion-item (click)="showDeviceInfo()">Device</button>
+    <button block ion-item (click)="showToast()">Toast</button>
+    <button block ion-item (click)="showActionSheet()">ActionSheet</button>
+    <button block ion-item (click)="showAppVersion()">AppVersion</button>
+    <button block ion-item (click)="showVibration()">Vibration</button>
+    <button block ion-item (click)="showSocialSharing()">SocialSharing</button>
+    <button block ion-item (click)="showNetwork()">Network</button>
+    <button block ion-item (click)="showNativeStorage()">NativeStorage</button>
+    <button block ion-item (click)="showSQLite()">SQLite</button>
+  </ion-list>
 </ion-content>

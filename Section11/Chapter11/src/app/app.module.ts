@@ -15,8 +15,8 @@ import { WhitelistPagePage } from '../pages/home/whitelist/whitelist';
 
 import { Device } from '@ionic-native/device';
 import { Toast } from '@ionic-native/toast';
-import { Contacts } from '@ionic-native/contacts';
-import { Geolocation } from '@ionic-native/geolocation';
+import { ActionSheet } from '@ionic-native/action-sheet';
+import { AppVersion } from '@ionic-native/app-version';
 import { Vibration } from '@ionic-native/vibration';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Network } from '@ionic-native/network';
@@ -53,8 +53,8 @@ import { SQLite } from '@ionic-native/sqlite';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Device,
     Toast,
-    Contacts,
-    Geolocation,
+    ActionSheet,
+    AppVersion,
     Vibration,
     SocialSharing,
     Network,
