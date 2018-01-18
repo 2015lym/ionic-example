@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item [navPush]="batteryPage">电池信息</button>
-    <button ion-item [navPush]="whitelistPage">照相</button>
+    <button ion-item (click)="showBattery()">电池信息</button>
+    <button ion-item (click)="showAlbum()">相册</button>
   </ion-list>
 </ion-content>

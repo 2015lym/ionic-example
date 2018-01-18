@@ -39,12 +39,12 @@ export class AboutPage {
 
   showActionSheet() {
 
-    let buttonLabels = ['确定', '取消'];
+    let buttonLabels = ['你好', '确定'];
 
     const options: ActionSheetOptions = {
       title: '你好Ionic',
       buttonLabels: buttonLabels,
-      addCancelButtonWithLabel: 'Cancel',
+      addCancelButtonWithLabel: '取消',
       androidTheme: this.actionSheet.ANDROID_THEMES.THEME_HOLO_LIGHT,
       destructiveButtonLast: true
     };

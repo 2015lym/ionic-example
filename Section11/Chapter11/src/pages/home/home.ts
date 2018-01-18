@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { BatteryPage } from './battery/battery';
-import { WhitelistPagePage } from './whitelist/whitelist';
+import { Platform } from 'ionic-angular/platform/platform';
 
 @Component({
   selector: 'page-home',
@@ -9,9 +8,27 @@ import { WhitelistPagePage } from './whitelist/whitelist';
 })
 export class HomePage {
 
-  batteryPage = BatteryPage;
-  whitelistPage = WhitelistPagePage;
+  constructor(
+    public navCtrl: NavController,
+    private platform: Platform,
+    private ngZone: NgZone) { }
 
-  constructor(public navCtrl: NavController) {}
+  showBattery() {
+    this.platform.ready().then(() => {
+      (<any>window).addEventListener('batterystatus', (status) => {
+        this.ngZone.run(() => {
+          alert("电量级别: " + status.level +
+            "，充电状态: " + (status.isPlugged ? '是' : '否'));
+        });
+      }, false);
+    });
+  }
 
+  showAlbum() {
+    this.platform.ready().then(() => {
+      (<any>window).imagePicker.getPictures(photo => {
+        console.log(photo[0]);
+      });
+    });
+  }
 }

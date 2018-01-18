@@ -10,8 +10,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { BatteryPage } from '../pages/home/battery/battery';
-import { WhitelistPagePage } from '../pages/home/whitelist/whitelist';
 
 import { Device } from '@ionic-native/device';
 import { Toast } from '@ionic-native/toast';
@@ -29,9 +27,7 @@ import { SQLite } from '@ionic-native/sqlite';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    BatteryPage,
-    WhitelistPagePage
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -43,9 +39,7 @@ import { SQLite } from '@ionic-native/sqlite';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    BatteryPage,
-    WhitelistPagePage
+    TabsPage
   ],
   providers: [
     StatusBar,
