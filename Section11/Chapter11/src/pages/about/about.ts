@@ -14,7 +14,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class AboutPage {
 
   constructor(
-    private navCtrl: NavController,
+    public navCtrl: NavController,
     private device: Device,
     private toast: Toast,
     private actionSheet: ActionSheet,
