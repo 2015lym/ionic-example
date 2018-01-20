@@ -1,0 +1,16 @@
+{
+  "name": "mongoose_exam",
+  "version": "1.0.0",
+  "description": "Example of Mongoose usage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.5.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"  
+  }
+}

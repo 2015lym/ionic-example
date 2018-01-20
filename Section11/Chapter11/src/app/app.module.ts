@@ -19,7 +19,8 @@ import { Vibration } from '@ionic-native/vibration';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Network } from '@ionic-native/network';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { SQLite } from '@ionic-native/sqlite';
+import { Keyboard } from '@ionic-native/keyboard';
+import { TouchID } from '@ionic-native/touch-id';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SQLite } from '@ionic-native/sqlite';
     SocialSharing,
     Network,
     NativeStorage,
-    SQLite
+    Keyboard,
+    TouchID
   ]
 })
 export class AppModule {}

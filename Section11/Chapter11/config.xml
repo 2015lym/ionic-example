@@ -87,10 +87,12 @@
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
-    <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
     <plugin name="cordova-plugin-actionsheet" spec="^2.3.3" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="com.synconset.imagepicker" spec="~2.1.8">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
+    </plugin>
+    <plugin name="cordova-plugin-touch-id" spec="^3.3.1">
+        <variable name="FACEID_USAGE_DESCRIPTION" value=" " />
     </plugin>
 </widget>
