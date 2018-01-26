@@ -3,8 +3,14 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { AppointmentPage } from '../pages/appointment/appointment';
+import { MyPlacePage } from '../pages/myPlace/myPlace';
+import { RegisterPage } from '../pages/register/register';
+import { SettingPage } from '../pages/setting/setting';
+import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +18,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,8 +27,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: '登录', component: LoginPage },
+      { title: '预约旅行产品', component: AppointmentPage },
+      { title: '我的足迹', component: MyPlacePage },
+      { title: '注册', component: RegisterPage },
+      { title: '设置', component: SettingPage },
+      { title: '旅游行踪', component: SightseeingPlacePage }
     ];
 
   }

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>注册用户</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark" stacked>您的手机号码</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" stacked>输入短信验证码</ion-label>
+      <ion-input type="number"></ion-input>
+      <button ion-button outline item-end>获取验证码</button>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" stacked>输入登录用户名</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" stacked>输入登录密码，至少6位</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" stacked>再次登录密码，至少6位</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" stacked>输入显示昵称</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <div class="bottom-div">
+      <button ion-button block color="stable" (click)="register(username, password)">
+        注册
+      </button>
+      <p tappable (tap)="privacy()">逍遥游用户隐私协议</p>
+    </div>
+  </ion-list>
+</ion-content>
