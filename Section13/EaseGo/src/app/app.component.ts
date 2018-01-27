@@ -17,38 +17,96 @@ import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  // 根页面
+  rootPage: any = SightseeingPlacePage;
+  // 页面数组
+  pages: Array<{ title: string, type: string, icon: string, component: any }>;
+  // 头像
+  imageUrl: string = '';
 
-  rootPage: any = LoginPage;
-
-  pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: '登录', component: LoginPage },
-      { title: '预约旅行产品', component: AppointmentPage },
-      { title: '我的足迹', component: MyPlacePage },
-      { title: '注册', component: RegisterPage },
-      { title: '设置', component: SettingPage },
-      { title: '旅游行踪', component: SightseeingPlacePage }
-    ];
-
+    if (localStorage.getItem('isLogin') === '1') {
+      this.pages = [
+        {
+          title: '退出',
+          type: 'push',
+          icon: 'ionitron',
+          component: LoginPage
+        },
+        {
+          title: '旅友行踪',
+          type: 'menu',
+          icon: 'bicycle',
+          component: SightseeingPlacePage
+        },
+        {
+          title: '我的足迹',
+          type: 'menu',
+          icon: 'paw',
+          component: MyPlacePage
+        },
+        {
+          title: '预约旅行产品',
+          type: 'menu',
+          icon: 'briefcase',
+          component: AppointmentPage
+        },
+        {
+          title: '设置',
+          type: 'menu',
+          icon: 'settings',
+          component: SettingPage
+        }
+      ];
+      this.imageUrl = 'https://avatars1.githubusercontent.com/u/16334445?s=460&v=4';
+    } else {
+      this.pages = [
+        {
+          title: '登录',
+          type: 'push',
+          icon: 'contact',
+          component: LoginPage
+        },
+        {
+          title: '注册',
+          type: 'push',
+          icon: 'document',
+          component: RegisterPage
+        },
+        {
+          title: '旅友行踪',
+          type: 'menu',
+          icon: 'bicycle',
+          component: SightseeingPlacePage
+        },
+        {
+          title: '预约旅行产品',
+          type: 'menu',
+          icon: 'briefcase',
+          component: AppointmentPage
+        }
+      ];
+      this.imageUrl = './assets/imgs/headImage.png';
+    }
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.type === 'push') {
+      this.nav.push(page.component);
+    } else {
+      this.nav.setRoot(page.component);
+    }
   }
 }

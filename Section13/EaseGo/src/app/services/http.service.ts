@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Request, RequestOptionsArgs, Response, RequestOptions, ConnectionBackend, Headers } from '@angular/http';
+import { Http, Request, RequestOptionsArgs, Response, URLSearchParams, RequestOptions, ConnectionBackend, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 
 /**
- * HTTP请求拦截器
+ * HTTP 请求拦截器
  */
 @Injectable()
 export class HttpService extends Http {
 
-  baseUrl = 'http://192.168.0.158:3000';
+  baseUrl = 'http://192.168.0.158:3000/api/v1/';
 
   constructor(
     backend: ConnectionBackend,
@@ -54,9 +54,9 @@ export class HttpService extends Http {
    */
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
     if (body == null) {
-      body = {};
+      body = new URLSearchParams();
     }
-    return this.intercept(super.post(url, body, this.getRequestOptionArgs('post', options)), true);
+    return this.intercept(super.post(url, body.toString(), this.getRequestOptionArgs('post', options)), true);
   }
 
   /**
@@ -83,8 +83,8 @@ export class HttpService extends Http {
     if (options.headers == null) {
       options.headers = new Headers();
     }
-    if (localStorage['token']) {
-      options.headers.append('Authorization', 'Bearer ' + localStorage['token']);
+    if (type === 'post') {
+      options.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     }
     return options;
   }

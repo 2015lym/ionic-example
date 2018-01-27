@@ -12,3 +12,30 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.easego-toast {
+  .toast-wrapper {
+    width: 90%;
+
+    &.toast-bottom {
+      bottom: 70px !important;
+    }
+
+    &.toast-top {
+      top: 60px !important;
+    }
+  }
+}
+
+.user-head-image-div {
+  text-align: center;
+  background-color: #ffcc80;
+
+  img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+  }
+}

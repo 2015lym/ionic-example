@@ -14,6 +14,8 @@ import { SettingPage } from '../pages/setting/setting';
 import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace';
 import { HttpService } from './services/http.service';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { VerifyService } from './services/verify.service';
+import { ToastService } from './services/toast.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
         return new HttpService(xhrBackend, requestOptions);
       },
       deps: [XHRBackend, RequestOptions]
-    }
+    },
+    VerifyService,
+    ToastService
   ]
 })
 export class AppModule { }
