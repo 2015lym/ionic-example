@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      基本信息
+    </ion-list-header>
+    <ion-item>
+      <ion-label class="black-label">购买产品</ion-label>
+      <ion-label class="right">{{title}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="black-label">购买数量</ion-label>
+      <ion-input placeholder="1" type="number" text-right [(ngModel)]="amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="black-label">价格(￥)</ion-label>
+      <ion-label class="right">{{item?.price|number}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="black-label">使用日期</ion-label>
+      <ion-datetime displayFormat="YYYY/MM/DD" min="2018" max="2030" [(ngModel)]="useDate" placeholder="年/月/日">
+      </ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      联系人信息
+    </ion-list-header>
+    <ion-item>
+      <ion-label class="black-label">姓名</ion-label>
+      <ion-input text-right type="text" [(ngModel)]="contactName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="black-label">联系手机</ion-label>
+      <ion-input text-right type="number" [(ngModel)]="contactPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="black-label">电子邮箱</ion-label>
+      <ion-input text-right type="email" [(ngModel)]="contactEmail"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button block ion-button color="stable">
+    提交
+  </button>
+
+</ion-content>

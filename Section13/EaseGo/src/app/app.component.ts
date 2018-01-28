@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -24,12 +24,35 @@ export class MyApp {
   // 头像
   imageUrl: string = '';
 
+  /**
+   * 构造函数
+   */
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen) {
+    public splashScreen: SplashScreen,
+    public events: Events) {
     this.initializeApp();
+    this.configData();
+    events.subscribe('loginStatus', () => {
+      this.configData();
+    });
+  }
 
+  /**
+   * 加载 App
+   */
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
+
+  /**
+   * 初始化页面数据
+   */
+  configData() {
     if (localStorage.getItem('isLogin') === '1') {
       this.pages = [
         {
@@ -95,15 +118,15 @@ export class MyApp {
     }
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
-
+  /**
+   * 打开页面
+   */
   openPage(page) {
     if (page.type === 'push') {
+      if (page.title === '退出') {
+        localStorage.setItem('isLogin', '0');
+        this.events.publish('loginStatus');
+      }
       this.nav.push(page.component);
     } else {
       this.nav.setRoot(page.component);

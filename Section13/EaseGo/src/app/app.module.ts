@@ -12,10 +12,16 @@ import { MyPlacePage } from '../pages/myPlace/myPlace';
 import { RegisterPage } from '../pages/register/register';
 import { SettingPage } from '../pages/setting/setting';
 import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace';
+import { ProductPage } from '../pages/appointment/product/product';
+import { DetailPage } from '../pages/appointment/detail/detail';
+import { ReservePage } from '../pages/appointment/reserve/reserve';
+
 import { HttpService } from './services/http.service';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { VerifyService } from './services/verify.service';
 import { ToastService } from './services/toast.service';
+import { UserService } from './services/user.service';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,10 @@ import { ToastService } from './services/toast.service';
     MyPlacePage,
     RegisterPage,
     SettingPage,
-    SightseeingPlacePage
+    SightseeingPlacePage,
+    ProductPage,
+    DetailPage,
+    ReservePage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,10 @@ import { ToastService } from './services/toast.service';
     MyPlacePage,
     RegisterPage,
     SettingPage,
-    SightseeingPlacePage
+    SightseeingPlacePage,
+    ProductPage,
+    DetailPage,
+    ReservePage
   ],
   providers: [
     StatusBar,
@@ -54,7 +66,9 @@ import { ToastService } from './services/toast.service';
       deps: [XHRBackend, RequestOptions]
     },
     VerifyService,
-    ToastService
+    ToastService,
+    NativeStorage,
+    UserService
   ]
 })
 export class AppModule { }

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of listData" (tap)="productDetail(item)">
+    <img tappable [src]="baseUrl + item.coverImageFileName" />
+    <div>{{item?.name}} - {{item?.introduction}}</div>
+    <div>
+      价格：
+      <span class="price">￥{{item?.price|number}}</span>
+    </div>
+  </ion-card>
+</ion-content>

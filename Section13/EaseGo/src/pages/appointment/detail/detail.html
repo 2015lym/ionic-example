@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img tappable [src]="baseUrl + item?.coverImageFileName" />
+    <div>{{item?.name}}</div>
+    <div>有效时间：{{item?.validBeforeDate|date:'yyyy-MM-dd'}}</div>
+    <div>
+      价格：
+      <span class="price">￥{{item?.price|number}}</span>
+    </div>
+    <div>产品详情：{{item?.detail}}</div>
+    <div>价格信息：{{item?.priceInfo}}</div>
+    <div>注意事项：{{item?.tip}}</div>
+  </ion-card>
+
+  <div style="text-align:center;">
+    <button ion-button icon-start color="positive" (click)="call()">
+      <ion-icon name="call"></ion-icon>
+      电话咨询
+    </button>
+
+    <button ion-button icon-start color="stable" (click)="reserveProduct()">
+      <ion-icon name="briefcase"></ion-icon>
+      立即预定
+    </button>
+  </div>
+
+</ion-content>

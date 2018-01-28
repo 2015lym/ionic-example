@@ -3,10 +3,106 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>预约旅行产品</ion-title>
+    <ion-title>预约旅行</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  <ion-segment class="bar-dark">
+    <button ion-button color="stable" outline block clear (click)="classic()">
+      经典
+    </button>
+    <button ion-button color="stable" outline block clear (click)="honeymoon()">
+      蜜月
+    </button>
+    <button ion-button color="stable" outline block clear (click)="kid()">
+      亲子
+    </button>
+    <button ion-button color="stable" outline block clear (click)="family()">
+      家庭
+    </button>
+  </ion-segment>
 
+  <ion-card class="card-background-page">
+    <img tappable (tap)="classic()" [src]="baseUrl + 'classic-cover.jpg'" />
+    <div class="card-title">经典</div>
+    <div>
+      <ion-scroll scrollX style="height:160px;">
+        <div *ngFor="let item of listData" class="scroll-item">
+          <div *ngIf="item.category == 'classic'" class="scroll-div" tappable (tap)="productDetail(item)">
+            <img [src]="baseUrl + item.coverImageFileName">
+            <div class="word-div">{{item?.name}} - {{item?.introduction}}</div>
+            <div>
+              价格：
+              <span class="price">￥{{item?.price|number}}</span>
+            </div>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </ion-card>
+
+  <ion-card class="card-background-page">
+    <img tappable (tap)="honeymoon()" [src]="baseUrl + 'honeymoon-cover.jpg'" />
+    <div class="card-title">蜜月</div>
+    <div>
+      <ion-scroll scrollX style="height:160px;">
+        <div *ngFor="let item of listData" class="scroll-item">
+          <div *ngIf="item.category == 'honeymoon'" class="scroll-div" tappable (tap)="productDetail(item)">
+            <img [src]="baseUrl + item.coverImageFileName">
+            <div class="word-div">{{item?.name}} - {{item?.introduction}}</div>
+            <div>
+              价格：
+              <span class="price">￥{{item?.price|number}}</span>
+            </div>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </ion-card>
+
+  <ion-card class="card-background-page">
+    <img tappable (tap)="kid()" [src]="baseUrl + 'kid-cover.jpg'" />
+    <div class="card-title">亲子</div>
+    <div>
+      <ion-scroll scrollX style="height:160px;">
+        <div *ngFor="let item of listData" class="scroll-item">
+          <div *ngIf="item.category == 'kid'" class="scroll-div" tappable (tap)="productDetail(item)">
+            <img [src]="baseUrl + item.coverImageFileName">
+            <div class="word-div">{{item?.name}} - {{item?.introduction}}</div>
+            <div>
+              价格：
+              <span class="price">￥{{item?.price|number}}</span>
+            </div>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </ion-card>
+
+  <ion-card class="card-background-page">
+    <img tappable (tap)="family()" [src]="baseUrl + 'family-cover.jpg'" />
+    <div class="card-title">家庭</div>
+    <div>
+      <ion-scroll scrollX style="height:160px;">
+        <div *ngFor="let item of listData" class="scroll-item">
+          <div *ngIf="item.category == 'family'" class="scroll-div" tappable (tap)="productDetail(item)">
+            <img [src]="baseUrl + item.coverImageFileName">
+            <div class="word-div">{{item?.name}} - {{item?.introduction}}</div>
+            <div>
+              价格：
+              <span class="price">￥{{item?.price|number}}</span>
+            </div>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </ion-card>
+  
+  <ion-fab bottom right>
+    <button ion-fab color="stable">
+      <ion-icon name="document">
+      </ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

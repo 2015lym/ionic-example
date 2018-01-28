@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class HttpService extends Http {
 
-  baseUrl = 'http://192.168.0.158:3000/api/v1/';
+  public baseUrl = 'http://192.168.0.158:3000/';
 
   constructor(
     backend: ConnectionBackend,
@@ -30,7 +30,7 @@ export class HttpService extends Http {
     }
 
     if (this.needContextPrefix(urlStr)) {
-      typeof url === 'string' ? (url = this.baseUrl + url) : (url['url'] = this.baseUrl + url['url']);
+      typeof url === 'string' ? (url = this.baseUrl + 'api/v1/' + url) : (url['url'] = this.baseUrl + 'api/v1/' + url['url']);
     }
     return this.intercept(super.request(url, options), false);
   }

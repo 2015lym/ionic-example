@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 import { VerifyService } from '../../app/services/verify.service';
 import { ToastService } from '../../app/services/toast.service';
 import { HttpService } from '../../app/services/http.service';
+import { UserService, UserInfoState } from '../../app/services/user.service';
 
 @Component({
   selector: 'page-register',
@@ -28,7 +29,9 @@ export class RegisterPage {
     public navCtrl: NavController,
     private verify: VerifyService,
     private toast: ToastService,
-    private http: HttpService) {
+    private http: HttpService,
+    private events: Events,
+    private userService: UserService) {
 
   }
 
@@ -42,7 +45,7 @@ export class RegisterPage {
       params.append('mobile', this.mobileNumber);
       this.http.post('users/get-verification-code', params).subscribe(res => {
         this.toast.show('获取成功');
-        let data = res.json();
+        let data: Object = res.json();
         this.verificationCode = data['verificationCode'];
       }, error => {
         this.toast.show('获取验证码失败');
@@ -65,6 +68,19 @@ export class RegisterPage {
       params.append('name', this.nickname);
       this.http.post('users/register', params).subscribe(res => {
         this.toast.show('注册成功');
+        localStorage.setItem('isLogin', '1');
+        this.events.publish('loginStatus');
+        let data: Object = res.json();
+        let user: UserInfoState = {
+          account: this.username,
+          password: this.password,
+          nickName: this.nickname,
+          mobile: this.mobileNumber,
+          userId: data['_id'],
+          headImage: this.http.baseUrl + data['avatarFileName']
+        };
+        this.userService.saveUserInfo(user);
+        this.navCtrl.pop();
       }, error => {
         this.toast.show('注册失败');
       });
