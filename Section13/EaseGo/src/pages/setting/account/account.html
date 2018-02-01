@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <ion-title>账户设置</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="changeInfo()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray">
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">显示昵称</ion-label>
+      <ion-input type="text" text-right [(ngModel)]="nickname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">手机号码</ion-label>
+      <ion-input type="number" text-right [(ngModel)]="mobileNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">电子邮箱</ion-label>
+      <ion-input type="email" text-right [(ngModel)]="myEmail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">性别</ion-label>
+      <ion-select [(ngModel)]="gender" cancelText="取消" okText="确定">
+        <ion-option value="1">男</ion-option>
+        <ion-option value="2">女</ion-option>
+        <ion-option value="3">保密</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">个人介绍</ion-label>
+      <ion-input type="text" text-right [(ngModel)]="introduction"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

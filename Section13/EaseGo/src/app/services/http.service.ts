@@ -11,6 +11,7 @@ import 'rxjs/Rx';
 export class HttpService extends Http {
 
   public baseUrl = 'http://192.168.0.158:3000/';
+  // public baseUrl = 'http://172.168.4.227:3000/';
 
   constructor(
     backend: ConnectionBackend,
@@ -46,7 +47,10 @@ export class HttpService extends Http {
    * put拦截器
    */
   put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.intercept(super.put(url, body, this.getRequestOptionArgs('put', options)), true);
+    if (body == null) {
+      body = new URLSearchParams();
+    }
+    return this.intercept(super.put(url, body.toString(), this.getRequestOptionArgs('put', options)), true);
   }
 
   /**
@@ -57,6 +61,16 @@ export class HttpService extends Http {
       body = new URLSearchParams();
     }
     return this.intercept(super.post(url, body.toString(), this.getRequestOptionArgs('post', options)), true);
+  }
+
+  /**
+   * file post拦截器
+   */
+  filePost(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
+    if (body == null) {
+      body = new URLSearchParams();
+    }
+    return this.intercept(super.post(url, body, this.getRequestOptionArgs('post', options)), true);
   }
 
   /**
@@ -82,9 +96,9 @@ export class HttpService extends Http {
     }
     if (options.headers == null) {
       options.headers = new Headers();
-    }
-    if (type === 'post') {
-      options.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      if (type === 'post' || type === 'put') {
+        options.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      }
     }
     return options;
   }

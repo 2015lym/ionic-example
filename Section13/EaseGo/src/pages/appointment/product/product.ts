@@ -9,9 +9,12 @@ import { DetailPage } from '../detail/detail';
 })
 export class ProductPage {
 
+  // 标题
   private title: string;
+  // 页面数据
   private listData: Array<Object> = [];
-  private baseUrl: string = this.http.baseUrl;
+  // 根地址
+  private baseUrl: string = '';
 
   /**
    * 构造函数
@@ -23,9 +26,10 @@ export class ProductPage {
   }
 
   /**
-   * 进入页面
+   * 页面加载完成
    */
   ionViewDidLoad() {
+    this.baseUrl = this.http.baseUrl;
     this.title = this.navParams.get('title');
     this.http.get('products/list/' + this.navParams.get('category')).subscribe(res => {
       this.listData = res.json();

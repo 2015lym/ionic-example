@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <ion-title>我的订单</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray">
+  <ion-card *ngFor="let item of listData">
+    <img tappable [src]="baseUrl + item?.product?.coverImageFileName" />
+    <div>{{item?.product?.name}}</div>
+    <div>使用时间：{{item?.useDate|date:'yyyy-MM-dd'}}</div>
+    <div>
+      价格：
+      <span class="price">￥{{item?.price|number}}</span>
+    </div>
+    <div>数量：{{item?.amount}}</div>
+    <div>总价：{{getTotalPrices(item)}}</div>
+  </ion-card>
+
+</ion-content>

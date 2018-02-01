@@ -7,6 +7,20 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="content-gray">
+  <div class="setting-head-image-div">
+    <input type="file" (change)="fileUpload($event)" id="file-input" style="opacity: 0" #fileInp>
+    <img [src]="imageUrl">
+  </div>
+  <ion-list>
+    <button ion-item (click)="accountSetting()">
+      账户设置
+    </button>
+    <button ion-item (click)="changePassword()">
+      修改密码
+    </button>
+    <button ion-item>
+      您的建议（自行练习）
+    </button>
+  </ion-list>
 </ion-content>

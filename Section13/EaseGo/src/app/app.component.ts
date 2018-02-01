@@ -5,12 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/login';
 import { AppointmentPage } from '../pages/appointment/appointment';
-import { MyPlacePage } from '../pages/myPlace/myPlace';
+import { MyTravelPage } from '../pages/travel/myTravel/myTravel';
 import { RegisterPage } from '../pages/register/register';
 import { SettingPage } from '../pages/setting/setting';
-import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace';
-
-
+import { OtherTravelPage } from '../pages/travel/otherTravel/otherTravel';
+import { UserService, UserInfoState } from './services/user.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,11 +17,13 @@ import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   // 根页面
-  rootPage: any = SightseeingPlacePage;
+  rootPage: any = OtherTravelPage;
   // 页面数组
   pages: Array<{ title: string, type: string, icon: string, component: any }>;
   // 头像
   imageUrl: string = '';
+  // 用户数据
+  user: UserInfoState = this.userService.getUserInfo();
 
   /**
    * 构造函数
@@ -31,11 +32,15 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
+    public userService: UserService,
     public events: Events) {
     this.initializeApp();
     this.configData();
     events.subscribe('loginStatus', () => {
       this.configData();
+    });
+    events.subscribe('changeHeadImage',()=>{
+      this.imageUrl = this.user.headImage;
     });
   }
 
@@ -53,7 +58,7 @@ export class MyApp {
    * 初始化页面数据
    */
   configData() {
-    if (localStorage.getItem('isLogin') === '1') {
+    if (this.userService.isLogin()) {
       this.pages = [
         {
           title: '退出',
@@ -65,13 +70,13 @@ export class MyApp {
           title: '旅友行踪',
           type: 'menu',
           icon: 'bicycle',
-          component: SightseeingPlacePage
+          component: OtherTravelPage
         },
         {
           title: '我的足迹',
           type: 'menu',
           icon: 'paw',
-          component: MyPlacePage
+          component: MyTravelPage
         },
         {
           title: '预约旅行产品',
@@ -86,7 +91,7 @@ export class MyApp {
           component: SettingPage
         }
       ];
-      this.imageUrl = 'https://avatars1.githubusercontent.com/u/16334445?s=460&v=4';
+      this.imageUrl = this.user.headImage;
     } else {
       this.pages = [
         {
@@ -105,7 +110,7 @@ export class MyApp {
           title: '旅友行踪',
           type: 'menu',
           icon: 'bicycle',
-          component: SightseeingPlacePage
+          component: OtherTravelPage
         },
         {
           title: '预约旅行产品',
@@ -126,6 +131,7 @@ export class MyApp {
       if (page.title === '退出') {
         localStorage.setItem('isLogin', '0');
         this.events.publish('loginStatus');
+        this.nav.setRoot(OtherTravelPage);
       }
       this.nav.push(page.component);
     } else {

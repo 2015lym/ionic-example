@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <ion-title>{{pageData?.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="submitInfo()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray">
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">游记名称</ion-label>
+      <ion-input type="text" text-right [(ngModel)]="travelName"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label color="dark">选择游记地点</ion-label>
+    </ion-item>
+    <div #map_container class="map_container"></div>
+    <ion-item>
+      <ion-label color="dark">开始日期</ion-label>
+      <ion-input type="date" text-right [(ngModel)]="startDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">里程数</ion-label>
+      <ion-input type="number" text-right [(ngModel)]="mileage"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">发布状态</ion-label>
+      <ion-toggle color="secondary" [(ngModel)]="state"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

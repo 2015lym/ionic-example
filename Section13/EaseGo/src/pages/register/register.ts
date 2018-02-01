@@ -4,6 +4,7 @@ import { VerifyService } from '../../app/services/verify.service';
 import { ToastService } from '../../app/services/toast.service';
 import { HttpService } from '../../app/services/http.service';
 import { UserService, UserInfoState } from '../../app/services/user.service';
+import { PrivacyPage } from './privacy/privacy';
 
 @Component({
   selector: 'page-register',
@@ -12,15 +13,15 @@ import { UserService, UserInfoState } from '../../app/services/user.service';
 export class RegisterPage {
 
   // 手机号
-  private mobileNumber: string;
+  private mobileNumber: string = '';
   // 验证码
-  private verificationCode: string;
+  private verificationCode: string = '';
   // 登录用户名
-  private username: string;
+  private username: string = '';
   // 密码
-  private password: string;
+  private password: string = '';
   // 昵称
-  private nickname: string;
+  private nickname: string = '';
 
   /**
    * 构造函数
@@ -67,9 +68,6 @@ export class RegisterPage {
       params.append('password', this.password);
       params.append('name', this.nickname);
       this.http.post('users/register', params).subscribe(res => {
-        this.toast.show('注册成功');
-        localStorage.setItem('isLogin', '1');
-        this.events.publish('loginStatus');
         let data: Object = res.json();
         let user: UserInfoState = {
           account: this.username,
@@ -77,9 +75,15 @@ export class RegisterPage {
           nickName: this.nickname,
           mobile: this.mobileNumber,
           userId: data['_id'],
-          headImage: this.http.baseUrl + data['avatarFileName']
+          headImage: this.http.baseUrl + data['avatarFileName'],
+          email: '',
+          introduction: '',
+          gender: '3'
         };
         this.userService.saveUserInfo(user);
+        localStorage.setItem('isLogin', '1');
+        this.events.publish('loginStatus');
+        this.toast.show('注册成功');
         this.navCtrl.pop();
       }, error => {
         this.toast.show('注册失败');
@@ -91,7 +95,7 @@ export class RegisterPage {
    * 隐私协议
    */
   privacy() {
-
+    this.navCtrl.push(PrivacyPage);
   }
 
   /**
@@ -101,24 +105,16 @@ export class RegisterPage {
     if (!this.verify.isMobilePhoneNumber(this.mobileNumber)) {
       this.toast.show('请输入正确的手机号');
       return false;
-    } else if (
-      this.verificationCode === undefined ||
-      this.verificationCode.length === 0) {
+    } else if (this.verificationCode.length === 0) {
       this.toast.show('请输入短信验证码');
       return false;
-    } else if (
-      this.username === undefined ||
-      this.username.length === 0) {
+    } else if (this.username.length === 0) {
       this.toast.show('请输入用户名');
       return false;
-    } else if (
-      this.password === undefined ||
-      this.password.length === 0) {
+    } else if (this.password.length === 0) {
       this.toast.show('请输入密码');
       return false;
-    } else if (
-      this.nickname === undefined ||
-      this.nickname.length === 0) {
+    } else if (this.nickname.length === 0) {
       this.toast.show('请输入昵称');
       return false;
     } else if (this.username.length > 16) {

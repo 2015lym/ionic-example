@@ -35,9 +35,6 @@ export class LoginPage {
       params.append('userLogonName', username.value);
       params.append('userPassword', password.value);
       this.http.post('users/logon', params).subscribe(res => {
-        this.toast.show('登录成功');
-        localStorage.setItem('isLogin', '1');
-        this.events.publish('loginStatus');
         let data: Object = res.json();
         let user: UserInfoState = {
           account: username.value,
@@ -45,9 +42,15 @@ export class LoginPage {
           nickName: data['name'],
           mobile: data['mobile'],
           userId: data['_id'],
-          headImage: this.http.baseUrl + data['avatarFileName']
+          headImage: this.http.baseUrl + data['avatarFileName'],
+          email: data['email'],
+          introduction: data['introduction'],
+          gender: data['gender']
         };
         this.userService.saveUserInfo(user);
+        localStorage.setItem('isLogin', '1');
+        this.events.publish('loginStatus');
+        this.toast.show('登录成功');
         this.navCtrl.pop();
       }, error => {
         this.toast.show('登录失败');

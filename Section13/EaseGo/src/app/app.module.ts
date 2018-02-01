@@ -8,33 +8,50 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppointmentPage } from '../pages/appointment/appointment';
 import { LoginPage } from '../pages/login/login';
-import { MyPlacePage } from '../pages/myPlace/myPlace';
+import { MyTravelPage } from '../pages/travel/myTravel/myTravel';
 import { RegisterPage } from '../pages/register/register';
 import { SettingPage } from '../pages/setting/setting';
-import { SightseeingPlacePage } from '../pages/sightseeingPlace/sightseeingPlace';
+import { OtherTravelPage } from '../pages/travel/otherTravel/otherTravel';
 import { ProductPage } from '../pages/appointment/product/product';
 import { DetailPage } from '../pages/appointment/detail/detail';
 import { ReservePage } from '../pages/appointment/reserve/reserve';
+import { MyProductPage } from '../pages/appointment/myProduct/myProduct';
+import { AccountPage } from '../pages/setting/account/account';
+import { ChangePasswordPage } from '../pages/setting/changePassword/changePassword';
+import { CreateTravelPlacePage } from '../pages/travel/createTravel/createTravel';
+import { PrivacyPage } from '../pages/register/privacy/privacy';
+import { EditTravelPage } from '../pages/travel/myTravel/editTravel/editTravel';
+import { EditTravelNotePage } from '../pages/travel/myTravel/editTravelNote/editTravelNote';
+import { MyTravelDetailPage } from '../pages/travel/myTravel/myTravelDetail/myTravelDetail';
+import { OtherTravelDetailPage } from '../pages/travel/otherTravel/otherTravelDetail/otherTravelDetail';
 
 import { HttpService } from './services/http.service';
-import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { HttpModule, XHRBackend, RequestOptions } from '@angular/http';
 import { VerifyService } from './services/verify.service';
 import { ToastService } from './services/toast.service';
 import { UserService } from './services/user.service';
-import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
   declarations: [
     MyApp,
     AppointmentPage,
     LoginPage,
-    MyPlacePage,
+    MyTravelPage,
     RegisterPage,
     SettingPage,
-    SightseeingPlacePage,
+    OtherTravelPage,
     ProductPage,
     DetailPage,
-    ReservePage
+    ReservePage,
+    MyProductPage,
+    AccountPage,
+    ChangePasswordPage,
+    CreateTravelPlacePage,
+    PrivacyPage,
+    EditTravelPage,
+    EditTravelNotePage,
+    MyTravelDetailPage,
+    OtherTravelDetailPage
   ],
   imports: [
     BrowserModule,
@@ -46,13 +63,22 @@ import { NativeStorage } from '@ionic-native/native-storage';
     MyApp,
     AppointmentPage,
     LoginPage,
-    MyPlacePage,
+    MyTravelPage,
     RegisterPage,
     SettingPage,
-    SightseeingPlacePage,
+    OtherTravelPage,
     ProductPage,
     DetailPage,
-    ReservePage
+    ReservePage,
+    MyProductPage,
+    AccountPage,
+    ChangePasswordPage,
+    CreateTravelPlacePage,
+    PrivacyPage,
+    EditTravelPage,
+    EditTravelNotePage,
+    MyTravelDetailPage,
+    OtherTravelDetailPage
   ],
   providers: [
     StatusBar,
@@ -67,7 +93,6 @@ import { NativeStorage } from '@ionic-native/native-storage';
     },
     VerifyService,
     ToastService,
-    NativeStorage,
     UserService
   ]
 })

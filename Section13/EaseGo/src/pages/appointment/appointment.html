@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="content-gray">
   <ion-segment class="bar-dark">
     <button ion-button color="stable" outline block clear (click)="classic()">
       经典
@@ -100,9 +100,11 @@
   </ion-card>
   
   <ion-fab bottom right>
-    <button ion-fab color="stable">
+    <button ion-fab color="stable" (click)="myProduct()">
       <ion-icon name="document">
       </ion-icon>
     </button>
   </ion-fab>
+
+  <div style="height:60px"></div>
 </ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="stable">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>我的足迹</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-gray">
+  <ion-card *ngFor="let item of listArray" tappable (tap)="travelDetail(item)">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="user?.headImage">
+      </ion-avatar>
+      <h2 *ngIf="item.state == '编辑'" style="color:red">标题：{{item?.name}}（未发布）</h2>
+      <h2 *ngIf="item.state == '已发布'">标题：{{item?.name}}</h2>
+      <p>作者：{{user?.nickName}}</p>
+    </ion-item>
+
+    <img [src]="baseUrl + item?.coverImageFileName">
+
+    <ion-card-content>
+      <p>地点：{{item?.location}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>0</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          {{item?.startDate|date:'yyyy-MM-dd'}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-fab bottom right>
+    <button ion-fab color="stable" (click)="createTravel()">
+      <ion-icon name="add">
+      </ion-icon>
+    </button>
+  </ion-fab>
+
+  <div style="height:60px"></div>
+</ion-content>
