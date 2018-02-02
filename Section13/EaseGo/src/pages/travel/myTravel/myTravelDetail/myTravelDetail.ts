@@ -4,6 +4,7 @@ import { HttpService } from '../../../../app/services/http.service';
 import { UserService, UserInfoState } from '../../../../app/services/user.service';
 import { ToastService } from '../../../../app/services/toast.service';
 import { EditTravelPage } from '../editTravel/editTravel';
+import { EditTravelNotePage } from '../editTravelNote/editTravelNote';
 
 declare var AMap;
 
@@ -94,5 +95,17 @@ export class MyTravelDetailPage {
       data: this.pageData
     };
     this.navCtrl.push(EditTravelPage, params);
+  }
+
+  /**
+   * 编辑单篇游记
+   */
+  editTravelNote(item: Object) {
+    let params: Object = {
+      data: this.pageData,
+      sectionData: item,
+      sectionId: item['_id']
+    };
+    this.navCtrl.push(EditTravelNotePage, params);
   }
 }

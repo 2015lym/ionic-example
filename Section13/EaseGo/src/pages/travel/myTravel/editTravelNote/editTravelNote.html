@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="stable">
-    <ion-title>{{title}}</ion-title>
+    <ion-title>编辑单篇游记</ion-title>
     <ion-buttons end>
       <button ion-button (click)="submitInfo()">
         <ion-icon name="checkmark"></ion-icon>
@@ -10,5 +10,16 @@
 </ion-header>
 
 <ion-content class="content-gray">
-
+  <textarea [(ngModel)]="text"></textarea>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">开始日期</ion-label>
+      <ion-datetime cancelText="取消" doneText="确定" displayFormat="YYYY/MM/DD" [(ngModel)]="articleDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark">设为封面图片</ion-label>
+      <ion-toggle color="secondary" [(ngModel)]="isArticleCoverImage"></ion-toggle>
+    </ion-item>
+    <img [src]="baseUrl + sectionData?.imageFileName">
+  </ion-list>
 </ion-content>

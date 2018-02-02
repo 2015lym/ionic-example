@@ -21,7 +21,7 @@
     <div #map_container class="map_container"></div>
     <ion-item>
       <ion-label color="dark">开始日期</ion-label>
-      <ion-input type="date" text-right [(ngModel)]="startDate"></ion-input>
+      <ion-datetime cancelText="取消" doneText="确定" displayFormat="YYYY/MM/DD" [(ngModel)]="startDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label color="dark">里程数</ion-label>

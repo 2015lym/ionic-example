@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="content-gray">
-  <ion-card *ngFor="let item of listArray">
+  <ion-card *ngFor="let item of listArray"  tappable (tap)="travelDetail(item)">
 
     <ion-item>
       <ion-avatar item-start>
@@ -28,13 +28,13 @@
       <ion-col>
         <button ion-button icon-left clear small>
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>0</div>
+          <div>{{getLikes(item)}}赞</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-left clear small>
           <ion-icon name="text"></ion-icon>
-          <div>4</div>
+          <div>{{getComments(item)}}评论</div>
         </button>
       </ion-col>
       <ion-col center text-center>

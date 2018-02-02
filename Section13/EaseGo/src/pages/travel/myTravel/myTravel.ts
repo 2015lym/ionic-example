@@ -61,4 +61,28 @@ export class MyTravelPage {
     };
     this.navCtrl.push(MyTravelDetailPage, params);
   }
+
+  /**
+   * 获取赞数
+   */
+  getLikes(item: Object): string {
+    let num: number = 0;
+    for (let i = 0; i < item['sections'].length; i++) {
+      let likesArray: Array<Object> = item['sections'][i]['likes'];
+      num += likesArray.length;
+    }
+    return num.toString();
+  }
+
+  /**
+   * 获取评论数
+   */
+  getComments(item): string {
+    let num: number = 0;
+    for (let i = 0; i < item['sections'].length; i++) {
+      let likesArray: Array<Object> = item['sections'][i]['comments'];
+      num += likesArray.length;
+    }
+    return num.toString();
+  }
 }

@@ -20,9 +20,9 @@
     <p item-end class="time">{{pageData?.startDate|date:'yyyy-MM-dd'}}</p>
   </ion-item>
 
-  <ion-card *ngFor="let item of pageData.sections" tappable (tap)="travelDetail(item)">
+  <ion-card *ngFor="let item of pageData.sections" tappable (tap)="editTravelNote(item)">
 
-    <img [src]="baseUrl + pageData?.coverImageFileName">
+    <img [src]="baseUrl + item?.imageFileName">
 
     <ion-card-content>
       <p>地点：{{pageData?.location}}</p>

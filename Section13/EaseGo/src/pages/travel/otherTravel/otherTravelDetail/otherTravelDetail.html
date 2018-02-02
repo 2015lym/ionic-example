@@ -1,9 +1,50 @@
 <ion-header>
   <ion-navbar color="stable">
-    <ion-title>{{title}}</ion-title>
+    <ion-title>{{pageData.name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="content-gray">
+  <div #map_container class="map_container"></div>
+  <ion-item>
+    <ion-avatar item-start>
+      <img [src]="pageData?.author?.avatarFileName">
+    </ion-avatar>
+    <h2>作者：{{pageData?.author?.name}}</h2>
+    <p>里程：{{pageData?.mileage}}公里</p>
+    <p item-end class="time">{{pageData?.startDate|date:'yyyy-MM-dd'}}</p>
+  </ion-item>
+
+  <ion-card *ngFor="let item of pageData.sections" tappable (tap)="editTravelNote(item)">
+
+    <img [src]="baseUrl + item?.imageFileName">
+
+    <ion-card-content>
+      <p>地点：{{pageData?.location}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{item?.likes.length}}赞</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{item?.comments.length}}评论</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar position="bottom">
+    <input type="file" (change)="fileUpload($event)" id="file-input" style="opacity: 0" #fileInp>
+    <button ion-button color="stable" full>选择图片</button>
+  </ion-toolbar>
+</ion-footer>

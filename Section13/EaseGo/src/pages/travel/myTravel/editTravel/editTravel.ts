@@ -14,8 +14,6 @@ export class EditTravelPage {
 
   // 页面数据
   private pageData: object = {};
-  // 根地址
-  private baseUrl: string = '';
   // 用户信息
   private user: UserInfoState = this.userService.getUserInfo();
 
@@ -87,6 +85,9 @@ export class EditTravelPage {
     marker.setMap(map);
   }
 
+  /**
+   * 提交信息
+   */
   submitInfo() {
     if (this.travelName === '') {
       this.toast.show('请输入游记名称');
