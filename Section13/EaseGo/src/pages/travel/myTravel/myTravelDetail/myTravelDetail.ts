@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { HttpService } from '../../../../app/services/http.service';
 import { UserService, UserInfoState } from '../../../../app/services/user.service';
 import { ToastService } from '../../../../app/services/toast.service';
@@ -30,8 +30,8 @@ export class MyTravelDetailPage {
     private navParams: NavParams,
     private http: HttpService,
     private userService: UserService,
-    private toast: ToastService) {
-
+    private toast: ToastService,
+    private viewCtrl: ViewController) {
   }
 
   /**
@@ -60,6 +60,7 @@ export class MyTravelDetailPage {
     var marker = new AMap.Marker({
       position: [this.pageData['geolocationSpot'][1], this.pageData['geolocationSpot'][0]]
     });
+    marker.setMap(map);
   }
 
   /**
@@ -69,7 +70,6 @@ export class MyTravelDetailPage {
     let self = this;
     function uploadComplete(evt) {
       var data = JSON.parse(evt.target.responseText);
-      alert(JSON.stringify(data));
     };
     function uploadFailed(evt) {
       self.toast.show('修改失败');

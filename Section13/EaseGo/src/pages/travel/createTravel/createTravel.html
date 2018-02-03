@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content class="content-gray">
-  <div #map_container class="map_container"></div>
+  <ion-card>
+    <ion-item>
+      <ion-label color="dark">游记名称</ion-label>
+      <ion-input type="text" text-right [(ngModel)]="travelName"></ion-input>
+    </ion-item>
+    <div #map_container class="map_container"></div>
+    <button ion-button block color="stable" (click)="createTravel()">
+      确定
+    </button>
+  </ion-card>
 </ion-content>

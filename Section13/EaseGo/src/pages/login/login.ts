@@ -42,7 +42,7 @@ export class LoginPage {
           nickName: data['name'],
           mobile: data['mobile'],
           userId: data['_id'],
-          headImage: this.http.baseUrl + data['avatarFileName'],
+          headImage: data['avatarFileName'],
           email: data['email'],
           introduction: data['introduction'],
           gender: data['gender']

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { HttpService } from '../../../../app/services/http.service';
 import { UserService, UserInfoState } from '../../../../app/services/user.service';
 import { ToastService } from '../../../../app/services/toast.service';
+import { CommentPage } from '../comment/comment';
 
 declare var AMap;
 
@@ -58,6 +59,18 @@ export class OtherTravelDetailPage {
     var marker = new AMap.Marker({
       position: [this.pageData['geolocationSpot'][1], this.pageData['geolocationSpot'][0]]
     });
+    marker.setMap(map);
   }
 
+  /**
+   * 查看详情 点赞、评论
+   */
+  commentTravel(item: Object) {
+    let params: Object = {
+      data: this.pageData,
+      sectionData: item,
+      sectionId: item['_id']
+    };
+    this.navCtrl.push(CommentPage, params);
+  }
 }

@@ -20,10 +20,15 @@ export class EditTravelNotePage {
   // 用户信息
   private user: UserInfoState = this.userService.getUserInfo();
 
-  private text: string = '';
+  // 单篇游记ID
   private sectionId: string = '';
+  // 游记内容
+  private text: string = '';
+  // 游记时间
   private articleDate: string = '';
+  // 是否是封面图
   private isArticleCoverImage: boolean = false;
+
   /**
    * 构造函数
    */

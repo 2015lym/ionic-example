@@ -75,7 +75,7 @@ export class RegisterPage {
           nickName: this.nickname,
           mobile: this.mobileNumber,
           userId: data['_id'],
-          headImage: this.http.baseUrl + data['avatarFileName'],
+          headImage: data['avatarFileName'],
           email: '',
           introduction: '',
           gender: '3'

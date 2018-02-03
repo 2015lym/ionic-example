@@ -24,6 +24,7 @@ import { EditTravelPage } from '../pages/travel/myTravel/editTravel/editTravel';
 import { EditTravelNotePage } from '../pages/travel/myTravel/editTravelNote/editTravelNote';
 import { MyTravelDetailPage } from '../pages/travel/myTravel/myTravelDetail/myTravelDetail';
 import { OtherTravelDetailPage } from '../pages/travel/otherTravel/otherTravelDetail/otherTravelDetail';
+import { CommentPage } from '../pages/travel/otherTravel/comment/comment';
 
 import { HttpService } from './services/http.service';
 import { HttpModule, XHRBackend, RequestOptions } from '@angular/http';
@@ -51,12 +52,19 @@ import { UserService } from './services/user.service';
     EditTravelPage,
     EditTravelNotePage,
     MyTravelDetailPage,
-    OtherTravelDetailPage
+    OtherTravelDetailPage,
+    CommentPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      platforms: {
+        ios: {
+          backButtonText: '返回'
+        }
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -78,7 +86,8 @@ import { UserService } from './services/user.service';
     EditTravelPage,
     EditTravelNotePage,
     MyTravelDetailPage,
-    OtherTravelDetailPage
+    OtherTravelDetailPage,
+    CommentPage
   ],
   providers: [
     StatusBar,

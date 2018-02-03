@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpService } from './http.service';
 
 export interface UserInfoState {
   account: string;
@@ -21,12 +22,12 @@ export class UserService {
   /**
    * 构造函数
    */
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   /**
    * 是否登录
    */
-  isLogin():boolean {
+  isLogin(): boolean {
     return localStorage.getItem('isLogin') === '1';
   }
 
@@ -55,7 +56,7 @@ export class UserService {
       nickName: localStorage.getItem('nickName'),
       mobile: localStorage.getItem('mobile'),
       userId: localStorage.getItem('userId'),
-      headImage: localStorage.getItem('headImage'),
+      headImage: this.http.baseUrl + localStorage.getItem('headImage'),
       email: localStorage.getItem('email'),
       introduction: localStorage.getItem('introduction'),
       gender: localStorage.getItem('gender')

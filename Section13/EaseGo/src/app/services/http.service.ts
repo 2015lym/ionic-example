@@ -10,9 +10,13 @@ import 'rxjs/Rx';
 @Injectable()
 export class HttpService extends Http {
 
+  // 根地址
   public baseUrl = 'http://192.168.0.158:3000/';
   // public baseUrl = 'http://172.168.4.227:3000/';
 
+  /**
+   * 构造函数
+   */
   constructor(
     backend: ConnectionBackend,
     defaultOptions: RequestOptions) {

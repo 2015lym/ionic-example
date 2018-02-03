@@ -73,6 +73,7 @@ export class EditTravelPage {
     var marker = new AMap.Marker({
       position: [this.pageData['geolocationSpot'][1], this.pageData['geolocationSpot'][0]]
     });
+    marker.setMap(map);
     var clickEventListener;
     clickEventListener = map.on('click', function (e) {
       self.geolocationSpot = [e.lnglat.getLng(), e.lnglat.getLat()];
@@ -82,7 +83,6 @@ export class EditTravelPage {
       });
       marker.setMap(map);
     });
-    marker.setMap(map);
   }
 
   /**

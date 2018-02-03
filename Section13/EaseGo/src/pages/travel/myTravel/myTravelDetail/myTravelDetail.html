@@ -10,19 +10,20 @@
 </ion-header>
 
 <ion-content class="content-gray">
-  <div #map_container class="map_container"></div>
-  <ion-item>
-    <ion-avatar item-start>
-      <img [src]="user?.headImage">
-    </ion-avatar>
-    <h2>作者：{{user?.nickName}}</h2>
-    <p>里程：{{pageData?.mileage}}公里</p>
-    <p item-end class="time">{{pageData?.startDate|date:'yyyy-MM-dd'}}</p>
-  </ion-item>
-
+  <ion-card>
+    <div #map_container class="map_container"></div>
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="user?.headImage">
+      </ion-avatar>
+      <h2>作者：{{user?.nickName}}</h2>
+      <p>里程：{{pageData?.mileage}}公里</p>
+      <p item-end class="time">{{pageData?.startDate|date:'yyyy-MM-dd'}}</p>
+    </ion-item>
+  </ion-card>
   <ion-card *ngFor="let item of pageData.sections" tappable (tap)="editTravelNote(item)">
 
-    <img [src]="baseUrl + item?.imageFileName">
+    <img class="article-img" [src]="baseUrl + item?.imageFileName">
 
     <ion-card-content>
       <p>地点：{{pageData?.location}}</p>
