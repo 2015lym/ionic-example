@@ -6,10 +6,8 @@ page-appointment {
   }
 
   .card-background-page {
-
     position: relative;
     text-align: center;
-  
     .card-title {
       position: absolute;
       background-color: rgba(0, 0, 0, 0.5);
@@ -20,40 +18,32 @@ page-appointment {
       font-weight: bold;
       color: #fff;
     }
-
   }
 
   ion-scroll[scrollX] {
     white-space: nowrap;
     .scroll-item {
       display: inline-block;
-      
       .scroll-div {
         width: 125px;
         height: 160px;
       }
-
       div {
         text-align: left;
       }
-
       .word-div {
         width: 125px;
         height: 40px;
         white-space: initial;
       }
-
       .price {
         color: #558b2f;
       }
-
       img {
         width: 120px;
         height: 80px;
         margin-left: 5px;
       }
     }
-    
   }
-  
 }
