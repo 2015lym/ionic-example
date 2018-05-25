@@ -3,5 +3,5 @@
 ![Author Lym](https://img.shields.io/badge/author-Lym-blue.svg)
 
 <div align="center">
-    <img src="./question.jpg" width = "200" height = "230" alt="" align=center />
+    <img src="./question.jpg" width = "300" height = "344" align=center />
 </div>
