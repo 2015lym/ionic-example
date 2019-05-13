@@ -41,7 +41,7 @@
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-battery-status": "^2.0.1",
     "cordova-plugin-device": "^1.1.4",
-    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-ionic-webview": "2.2.0",
     "cordova-plugin-nativestorage": "^2.2.2",
     "cordova-plugin-network-information": "^2.0.1",
     "cordova-plugin-splashscreen": "^4.0.3",
